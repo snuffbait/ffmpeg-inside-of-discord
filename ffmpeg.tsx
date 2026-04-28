@@ -3,7 +3,7 @@ import { ChatBarButton, ChatBarButtonFactory } from "@api/ChatButtons";
 import { Toasts, React, SelectedChannelStore, DraftType } from "@webpack/common";
 import { findByProps } from "@webpack";
 
-const SIZEEEE = 8 * 1024 * 1024; // 8MB
+const SIZEEEE = 8 * 1024 * 1024; // you tell me lol
 const ffmpeg = "http://127.0.0.1:7123/compress";
 
 async function upload(files: File[], channelId: string) {
@@ -19,7 +19,7 @@ async function upload(files: File[], channelId: string) {
     });
 }
 
-async function compressAndUpload(channelId: string) {
+async function idk(channelId: string) {
     const input = document.createElement("input");
     input.type = "file";
     input.accept = "video/mp4,.mp4";
@@ -47,8 +47,8 @@ async function compressAndUpload(channelId: string) {
             if (!res.ok) throw new Error(`Helper returned ${res.status}`);
 
             const blob = await res.blob();
-            const newName = file.name.replace(/\.mp4$/i, "_Fae_was_here.mp4");
-            const compressed = new File([blob], newName, { type: "video/mp4" });
+            const named = file.name.replace(/\.mp4$/i, "_Fae_was_here.mp4");
+            const compressed = new File([blob], named, { type: "video/mp4" });
 
             Toasts.show({
                 message: `Done ${(file.size / 1024 / 1024).toFixed(1)}MB > ${(compressed.size / 1024 / 1024).toFixed(1)}MB`,
@@ -70,12 +70,12 @@ async function compressAndUpload(channelId: string) {
     input.click();
 }
 
-const CompressButton: ChatBarButtonFactory = ({ isMainChat, channel }) => {
+const buton: ChatBarButtonFactory = ({ isMainChat, channel }) => {
     if (!isMainChat) return null;
 
     return React.createElement(ChatBarButton, {
         tooltip: "Compress & Upload Video",
-        onClick: () => compressAndUpload(channel?.id ?? SelectedChannelStore.getChannelId())
+        onClick: () => idk(channel?.id ?? SelectedChannelStore.getChannelId())
     }, React.createElement("div", { style: { fontSize: "20px" } }, "🏁"));
 };
 
@@ -85,6 +85,6 @@ export default definePlugin({
     authors: [{ id: "832999544844845056", name: "Fae" }],
 
     chatBarButton: {
-        render: CompressButton
+        render: buton
     }
 });
