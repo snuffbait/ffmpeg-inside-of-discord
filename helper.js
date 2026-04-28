@@ -34,7 +34,7 @@ http.createServer((req, res) => {
                 const bitrate = Math.max(Math.floor(((bits / dur) - audio) / 1024), 100);
 
                 execSync(
-                    `ffmpeg -i "${tmp}" -c:v libx264 -b:v ${bitrate}k -preset medium -c:a aac -b:a 128k -y "${out}"`,
+                    `ffmpeg -i "${tmp}" -c:v libx264 -b:v ${bitrate}k -preset medium -c:a aac -b:a 128k -y "${out}"`, //nitro free method
                     { stdio: "ignore" }
                 );
 
@@ -46,7 +46,7 @@ http.createServer((req, res) => {
                     fs.rmSync(out, { force: true });
                 });
             } catch (e) {
-                console.error("[compress-helper] Error:", e.message);
+                console.error("errorrr ", e.message);
                 fs.rmSync(tmp, { force: true });
                 fs.rmSync(out, { force: true });
                 res.writeHead(500);
