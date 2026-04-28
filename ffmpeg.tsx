@@ -74,7 +74,7 @@ const buton: ChatBarButtonFactory = ({ isMainChat, channel }) => {
     if (!isMainChat) return null;
 
     return React.createElement(ChatBarButton, {
-        tooltip: "Compress & Upload Video",
+        tooltip: "Compress",
         onClick: () => idk(channel?.id ?? SelectedChannelStore.getChannelId())
     }, React.createElement("div", { style: { fontSize: "20px" } }, "🏁"));
 };
