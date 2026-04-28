@@ -34,7 +34,7 @@ http.createServer((req, res) => {
                 const bitrate = Math.max(Math.floor(((bits / dur) - audio) / 1024), 100);
 
                 execSync(
-                    `ffmpeg -i "${tmp}" -c:v libx264 -b:v ${bitrate}k -preset medium -c:a aac -b:a 128k -y "${out}"`, //nitro free method
+                    `ffmpeg -i "${tmp}" -c:v libx264 -b:v ${bitrate}k -preset medium -c:a aac -b:a 128k -y "${out}"`, //nitro free method //  metohd leaked tursttt
                     { stdio: "ignore" }
                 );
 
