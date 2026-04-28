@@ -1,0 +1,12 @@
+{
+  "name": "HELPSHESRIPPINGOUTMYRIBSS",
+  "version": "1.0.0",
+  "description": "FMMPEEGG",
+  "main": "helper.js",
+  "scripts": {
+    "start": "node helper.js"
+  },
+  "dependencies": {
+    "busboy": "^1.6.0"
+  }
+}
