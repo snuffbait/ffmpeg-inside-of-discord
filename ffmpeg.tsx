@@ -51,7 +51,7 @@ async function idk(channelId: string) {
             const compressed = new File([blob], named, { type: "video/mp4" });
 
             Toasts.show({
-                message: `Done ${(file.size / 1024 / 1024).toFixed(1)}MB > ${(compressed.size / 1024 / 1024).toFixed(1)}MB`,
+                message: `${(file.size / 1024 / 1024).toFixed(1)}MB > ${(compressed.size / 1024 / 1024).toFixed(1)}MB`,
                 type: Toasts.Type.SUCCESS,
                 id: Toasts.genId()
             });
